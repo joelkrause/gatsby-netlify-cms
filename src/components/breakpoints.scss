@@ -1,0 +1,43 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1920px;
+
+// @include breakpoint(up,md) {
+//     display: block;
+// }
+@mixin breakpoint($direction, $size) {
+    @if $size=='sm' {
+        $size: $sm;
+    }
+
+    @else if $size=='md' {
+        $size: $md;
+    }
+
+    @else if $size=='lg' {
+        $size: $lg;
+    }
+
+    @else if $size=='xl' {
+        $size: $xl;
+    }
+
+    @else if $size=='xxl' {
+        $size: $xxl;
+    }
+
+    @if $direction=='up' {
+        $direction: 'min-width';
+    }
+
+    @else if $direction=='down' {
+        $direction: 'max-width';
+    }
+
+    // Now for the actual content!
+    @media ($direction: $size) {
+        @content;
+    }
+}

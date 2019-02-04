@@ -1,0 +1,73 @@
+@import "./breakpoints";
+@import url('https://rsms.me/inter/inter.css');
+
+:root {
+    --primaryText: #222;
+    --primaryBackground: #fff;
+    --secondaryText: #222;
+    --secondaryBackground: #f8f8f8;
+}
+
+body,
+html {
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    color: var(--primaryText);
+    font-family: sans-serif;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+
+    @supports (font-variation-settings: normal) {
+        font-family: 'Inter var', sans-serif;
+    }
+}
+
+.wrapper {
+    max-width: 60vw;
+    margin: 0 auto;
+}
+
+header {
+    background-color: var(--secondaryBackground);
+    color: var(--secondaryText);
+
+    .wrapper {
+        @include breakpoint(up, lg) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    nav {
+        @include breakpoint(up, lg) {
+            flex-grow: 1;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            @include breakpoint(up, lg) {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            li {
+                padding: 15px;
+
+                a {
+                    color: var(--primaryText);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
