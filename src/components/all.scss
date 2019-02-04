@@ -6,6 +6,9 @@
     --primaryBackground: #fff;
     --secondaryText: #222;
     --secondaryBackground: #f8f8f8;
+
+    --baseSize: 1rem;
+    --subSize: 1.25rem;
 }
 
 body,
@@ -16,9 +19,11 @@ html {
     -webkit-font-smoothing: antialiased;
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
     color: var(--primaryText);
-    font-family: sans-serif;
     margin: 0;
     font-family: 'Inter', sans-serif;
+    font-size: var(--baseSize);
+    line-height: 1.45;
+
 
     @supports (font-variation-settings: normal) {
         font-family: 'Inter var', sans-serif;
@@ -26,23 +31,49 @@ html {
 }
 
 .wrapper {
-    max-width: 60vw;
     margin: 0 auto;
+    width: 90vw;
+
+    @include breakpoint(up, lg) {
+        max-width: 50vw;
+    }
 }
 
 header {
-    background-color: var(--secondaryBackground);
+    background-color: var(--primaryBackground);
+    border-bottom: 1px solid var(--secondaryBackground);
     color: var(--secondaryText);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
 
     .wrapper {
         @include breakpoint(up, lg) {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
             display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
             align-items: center;
+        }
+    }
+
+    .logo {
+        a {
+            color: var(--primaryText);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: var(--subSize);
         }
     }
 
     nav {
         @include breakpoint(up, lg) {
+            -webkit-box-flex: 1;
+            -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
             flex-grow: 1;
         }
 
@@ -55,8 +86,17 @@ header {
 
         ul {
             @include breakpoint(up, lg) {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
                 display: flex;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
                 align-items: center;
+                -webkit-box-pack: end;
+                -webkit-justify-content: flex-end;
+                -ms-flex-pack: end;
                 justify-content: flex-end;
             }
 
@@ -69,5 +109,35 @@ header {
                 }
             }
         }
+    }
+}
+
+.post-card {
+    padding: 25px 0;
+
+    a {
+        color: var(--primaryText);
+        text-decoration: none;
+    }
+
+    &_title {
+        font-size: var(--subSize);
+        padding: 0 0 15px;
+        font-weight: 600;
+    }
+
+    &_date {
+        padding: 0 0 15px;
+        color: #666;
+    }
+
+    &_tags {
+        padding: 0 0 15px;
+        color: #666;
+    }
+
+    &_excerpt {
+        padding: 0 0 15px;
+        color: #666;
     }
 }

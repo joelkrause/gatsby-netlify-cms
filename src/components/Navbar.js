@@ -33,7 +33,7 @@ const Navbar = class extends React.Component {
     <div className="wrapper">
       <div class="logo">
       <Link to="/" className="navbar-item" title="Logo">
-      joel krause
+      Joel Krause
       </Link>
       </div>
       <nav>

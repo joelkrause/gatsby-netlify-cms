@@ -7,36 +7,31 @@ export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
+    
 
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-            </div>
+        <section className="section_posts">
+          <div className="wrapper">
             {posts
               .map(({ node: post }) => (
                 <div
-                  className="content"
-                  style={{ border: '1px solid #333', padding: '2em 4em' }}
+                  className="content post-card"
                   key={post.id}
                 >
-                  <p>
+                  <div className="post-card_title">
                     <Link className="has-text-primary" to={post.fields.slug}>
                       {post.frontmatter.title}
                     </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
+                  </div>
+                  <div className="post-card_date">{post.frontmatter.date}</div>
+                  <div className="post-card_tags">Tags</div>
+                  <div className="post-card_excerpt">
                     {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
-                  </p>
+                  </div>
+                  <Link className="button is-small" to={post.fields.slug}>
+                    Keep Reading →
+                  </Link>
                 </div>
               ))}
           </div>
