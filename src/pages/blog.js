@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-export default class IndexPage extends React.Component {
+export default class BlogPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
@@ -13,16 +13,11 @@ export default class IndexPage extends React.Component {
       <Layout>
         <section className="mega__title">
           <div className="wrapper">
-            <h1>Hey, I'm Joel &mdash; I'm a front-end web developer at <a href="http://chriate.com.au" target="_blank">Studio Chriate</a>.</h1>
-            <p>I'm passionate about all things web and currently enjoy my days building bespoke WordPress websites.</p>
+            <h1>All Posts</h1>
           </div>
         </section>
         <section className="section_posts">
           <div className="wrapper">
-          <div className="home__heading">
-            <h2>Latest Posts</h2>
-            <Link to="/blog" className="button">See All Posts</Link>
-          </div>
             {posts
               .map(({ node: post }) => (
                 <div
@@ -44,7 +39,7 @@ export default class IndexPage extends React.Component {
   }
 }
 
-IndexPage.propTypes = {
+BlogPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -53,7 +48,7 @@ IndexPage.propTypes = {
 }
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query BlogQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
