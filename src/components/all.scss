@@ -230,3 +230,38 @@ header {
         color: #666;
     }
 }
+
+footer {
+    &.site__footer {
+        background-color: var(--secondaryBackground);
+        color: var(--secondaryText);
+        padding: 25px 0;
+        margin: 25px;
+
+        .wrapper {
+            display: flex;
+
+            .social__links {
+                flex-grow: 1;
+
+                ul,
+                li {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                ul {
+                    display: flex;
+                    justify-content: flex-end;
+                    li {
+                        a {
+                            color: var(--primaryText);
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
