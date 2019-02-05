@@ -38,7 +38,10 @@ const Navbar = class extends React.Component {
       </div>
       <nav>
         <ul>
-          <li><a href="#">Link</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/blog">Posts</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
       </nav>
     </div>
