@@ -19,12 +19,14 @@
 :root {
     --primaryText: #222;
     --primaryBackground: #fff;
-    --secondaryText: #fff;
-    --secondaryBackground: #222;
+    --secondaryText: #222;
+    --secondaryBackground: #f8f8f8;
 
-    --baseSize: 1.1rem;
-    --subSize: 1.25rem;
-    --headingSize: 1.75rem;
+    @include breakpoint(up, lg) {
+        --baseSize: 1.1rem;
+        --subSize: 1.25rem;
+        --headingSize: 1.75rem;
+    }
 }
 
 body,
@@ -61,6 +63,7 @@ header {
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
     padding: 15px 0;
+    margin: 25px 25px 0;
 
     .wrapper {
         @include breakpoint(up, lg) {
@@ -133,6 +136,7 @@ header {
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
     padding: 10vw 0;
+    margin: 0 25px;
 
     h1 {
         margin: 0;
