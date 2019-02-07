@@ -13,7 +13,9 @@ const Footer = class extends React.Component {
         </div>
         <div className="social__links">
         <ul>
-            <li><a href="#">Social</a></li>
+            <li><a href="https://twitter.com/joel_krause" target="_blank">Twitter</a></li>
+            <li><a href="https://twitter.com/joel_krause" target="_blank">LinkedIn</a></li>
+            <li><a href="https://twitter.com/joel_krause" target="_blank">GitHub</a></li>
         </ul>
         </div>
     </div>
