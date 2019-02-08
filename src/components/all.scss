@@ -71,16 +71,14 @@ header {
     }
 
     .wrapper {
-        @include breakpoint(up, lg) {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
 
     a {
@@ -88,6 +86,8 @@ header {
     }
 
     .logo {
+        flex-grow: 1;
+
         a {
             text-decoration: none;
             font-weight: 600;
@@ -103,6 +103,42 @@ header {
             flex-grow: 1;
         }
 
+        .navbar__burger {
+            position: relative;
+            z-index: 1;
+
+            &[type="checkbox"] {
+                display: none;
+            }
+
+            +label {
+                transition: color 0.25s;
+                position: relative;
+                z-index: 1;
+                display: block;
+
+                span {
+                    width: 25px;
+                    height: 2px;
+                    background-color: var(--primaryText);
+                    margin-bottom: 10px;
+                    display: block;
+                }
+            }
+
+            &:checked {
+                +label {
+                    span {
+                        background-color: var(--primaryBackground);
+                    }
+                }
+
+                ~ul {
+                    right: 0;
+                }
+            }
+        }
+
         ul,
         li {
             list-style: none;
@@ -110,7 +146,27 @@ header {
             margin: 0;
         }
 
+        &.open {
+            ul {
+                left: 0;
+            }
+        }
+
         ul {
+            @include breakpoint(down, md) {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100%;
+                background-color: var(--primaryText);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                transition: right 0.5s;
+            }
+
             @include breakpoint(up, lg) {
                 display: -webkit-box;
                 display: -webkit-flex;
@@ -130,7 +186,12 @@ header {
                 padding: 15px;
 
                 a {
+                    color: var(--primaryBackground);
                     text-decoration: none;
+
+                    @include breakpoint(up, lg) {
+                        color: var(--primaryText);
+                    }
                 }
             }
         }
