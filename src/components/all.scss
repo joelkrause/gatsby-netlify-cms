@@ -137,6 +137,10 @@ header {
                     right: 0;
                 }
             }
+
+            @include breakpoint(up, md) {
+                display: none!important;
+            }
         }
 
         ul,
